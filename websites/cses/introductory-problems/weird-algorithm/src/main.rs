@@ -1,8 +1,10 @@
-use std::io;
-
 fn main() {
-    let mut n = read_i64();
+    let n = read_i64();
 
+    println!("{}", solve(n));
+}
+
+fn solve(mut n: i64) -> String {
     let mut values = Vec::new();
 
     loop {
@@ -19,15 +21,20 @@ fn main() {
         }
     }
 
-    println!(
-        "{}",
-        values
-            .iter()
-            .map(ToString::to_string)
-            .collect::<Vec<_>>()
-            .join(" ")
-    );
+    values
+        .iter()
+        .map(ToString::to_string)
+        .collect::<Vec<_>>()
+        .join(" ")
 }
+
+#[test]
+fn test_solve() {
+    assert_eq!(solve(3).as_str(), "3 10 5 16 8 4 2 1")
+}
+
+// IO
+use std::io;
 
 fn read_i64() -> i64 {
     let mut input = String::new();
@@ -36,5 +43,8 @@ fn read_i64() -> i64 {
         .read_line(&mut input)
         .expect("Error reading the line");
 
-    input.trim().parse().unwrap()
+    input
+        .trim()
+        .parse()
+        .expect("Error parsing the string to i64")
 }
