@@ -1,4 +1,5 @@
 [workspace]
 members = [
-  "../../websites/cses/introductory-problems/weird-algorithm"
+  "../../websites/cses/introductory-problems/weird-algorithm",
+  "../../websites/cses/introductory-problems/missing-number"
 ]
