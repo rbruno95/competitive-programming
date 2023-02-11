@@ -43,5 +43,8 @@ fn read_i64() -> i64 {
         .read_line(&mut input)
         .expect("Error reading the line");
 
-    input.trim().parse().unwrap()
+    input
+        .trim()
+        .parse()
+        .expect("Error parsing the string to i64")
 }
