@@ -1,6 +1,6 @@
 fn main() {
-    let n = read_i64();
-    let numbers = read_vec_i64();
+    let n = read::<i64>();
+    let numbers = read_vec::<i64>();
 
     println!("{}", solve(n, &numbers));
 }
@@ -15,9 +15,9 @@ fn test_solve() {
 }
 
 // IO
-use std::io;
+use std::{io, str::FromStr};
 
-fn read_i64() -> i64 {
+fn read<T: FromStr>() -> T {
     let mut input = String::new();
 
     io::stdin()
@@ -27,10 +27,10 @@ fn read_i64() -> i64 {
     input
         .trim()
         .parse()
-        .expect("Error parsing the string to i64")
+        .unwrap_or_else(|_| panic!("Error parsing the line"))
 }
 
-fn read_vec_i64() -> Vec<i64> {
+fn read_vec<T: FromStr>() -> Vec<T> {
     let mut input = String::new();
 
     io::stdin()
@@ -39,7 +39,10 @@ fn read_vec_i64() -> Vec<i64> {
 
     input
         .trim()
-        .split(" ")
-        .map(|x| x.parse().expect("Error parsing the string to i64"))
+        .split_whitespace()
+        .map(|x| {
+            x.parse()
+                .unwrap_or_else(|_| panic!("Error parsing the line"))
+        })
         .collect()
 }

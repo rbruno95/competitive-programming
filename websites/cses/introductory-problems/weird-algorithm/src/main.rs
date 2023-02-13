@@ -1,5 +1,5 @@
 fn main() {
-    let n = read_i64();
+    let n = read::<i64>();
 
     println!("{}", solve(n));
 }
@@ -34,9 +34,9 @@ fn test_solve() {
 }
 
 // IO
-use std::io;
+use std::{io, str::FromStr};
 
-fn read_i64() -> i64 {
+fn read<T: FromStr>() -> T {
     let mut input = String::new();
 
     io::stdin()
@@ -46,5 +46,5 @@ fn read_i64() -> i64 {
     input
         .trim()
         .parse()
-        .expect("Error parsing the string to i64")
+        .unwrap_or_else(|_| panic!("Error parsing the line"))
 }
