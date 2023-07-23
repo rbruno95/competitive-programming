@@ -1,5 +1,5 @@
 [package]
-name = "missing-number"
+name = "missing_number"
 version = "0.1.0"
 edition = "2021"
 workspace = "../../../../.cargo/workspace"
