@@ -33,31 +33,7 @@ impl<R: io::BufRead> Scanner<R> {
 // TEMPLATE (END)
 
 fn solve<R: io::BufRead, W: io::Write>(scan: &mut Scanner<R>, w: &mut W) {
-    let numbers = (0..3).map(|_| scan.token::<usize>()).collect::<Vec<_>>();
-    let (n, m, k) = (numbers[0], numbers[1], numbers[2]);
-    let mut applicants = (0..n).map(|_| scan.token::<i64>()).collect::<Vec<_>>();
-    let mut apartments = (0..m).map(|_| scan.token::<i64>()).collect::<Vec<_>>();
-
-    applicants.sort_unstable();
-    apartments.sort_unstable();
-
-    let mut counter = 0;
-    let mut applicant_idx = 0;
-    let mut apartment_idx = 0;
-
-    while applicant_idx < n && apartment_idx < m {
-        if (applicants[applicant_idx] - apartments[apartment_idx]).abs() as usize <= k {
-            counter += 1;
-            applicant_idx += 1;
-            apartment_idx += 1;
-        } else if applicants[applicant_idx] < apartments[apartment_idx] {
-            applicant_idx += 1;
-        } else {
-            apartment_idx += 1;
-        }
-    }
-
-    writeln!(w, "{counter}").ok();
+    // Write here your solution
 }
 
 fn main() {
