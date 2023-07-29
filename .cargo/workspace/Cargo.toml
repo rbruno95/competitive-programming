@@ -5,4 +5,5 @@ members = [
   "../../websites/cses/sorting_and_searching/distinct_numbers",
   "../../websites/cses/sorting_and_searching/apartments",
   "../../websites/codeforces/round_0888_div_3/escalator_conversations",
+  "../../websites/codeforces/round_0888_div_3/parity_sort",
 ]
