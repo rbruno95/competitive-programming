@@ -42,7 +42,22 @@ macro_rules! scan_tuple {
 // TEMPLATE (END)
 
 fn solve<R: io::BufRead, W: io::Write>(scan: &mut Scanner<R>, w: &mut W) {
-    // Write here your solution
+    let testcases = scan.token::<usize>();
+
+    (0..testcases).for_each(|_| {
+        let (n, m, k, vlad_h) = scan_tuple!(scan, usize, i32, i32, i32);
+        let people_h = scan.vector::<i32>(n);
+
+        let sol = (0..n)
+            .filter(|&i| {
+                people_h[i] != vlad_h
+                    && ((people_h[i] - vlad_h) % k == 0)
+                    && (people_h[i] - vlad_h).abs() / k <= (m - 1)
+            })
+            .count();
+
+        writeln!(w, "{sol}").ok();
+    })
 }
 
 fn main() {
