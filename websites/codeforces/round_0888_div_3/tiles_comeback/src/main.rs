@@ -42,7 +42,30 @@ macro_rules! scan_tuple {
 // TEMPLATE (END)
 
 fn solve<R: io::BufRead, W: io::Write>(scan: &mut Scanner<R>, w: &mut W) {
-    // Write here your solution
+    let testcases = scan.token::<usize>();
+
+    (0..testcases).for_each(|_| {
+        let (n, k) = scan_tuple!(scan, usize, usize);
+        let c = scan.vector::<usize>(n);
+
+        let sol = if c[0] == c[n - 1] {
+            if c.iter().filter(|&&color| color == c[0]).count() >= k {
+                "YES"
+            } else {
+                "NO"
+            }
+        } else {
+            match (
+                (0..n).filter(|&i| c[i] == c[0]).nth(k - 1),
+                (0..n).rev().filter(|&i| c[i] == c[n - 1]).nth(k - 1),
+            ) {
+                (Some(i), Some(j)) if i < j => "YES",
+                _ => "NO",
+            }
+        };
+
+        writeln!(w, "{sol}").ok();
+    })
 }
 
 fn main() {

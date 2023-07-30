@@ -4,4 +4,7 @@ members = [
   "../../websites/cses/introductory_problems/missing_number",
   "../../websites/cses/sorting_and_searching/distinct_numbers",
   "../../websites/cses/sorting_and_searching/apartments",
+  "../../websites/codeforces/round_0888_div_3/escalator_conversations",
+  "../../websites/codeforces/round_0888_div_3/parity_sort",
+  "../../websites/codeforces/round_0888_div_3/tiles_comeback",
 ]

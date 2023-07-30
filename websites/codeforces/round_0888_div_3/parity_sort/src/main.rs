@@ -33,16 +33,29 @@ impl<R: io::BufRead> Scanner<R> {
         (0..n).map(|_| self.token::<T>()).collect::<Vec<_>>()
     }
 }
-
-macro_rules! scan_tuple {
-    ($x:expr, $($t:ty),*) => {
-        ($($x.token::<$t>(),)*)
-    };
-}
 // TEMPLATE (END)
 
 fn solve<R: io::BufRead, W: io::Write>(scan: &mut Scanner<R>, w: &mut W) {
-    // Write here your solution
+    let testcases = scan.token::<usize>();
+
+    (0..testcases).for_each(|_| {
+        let n = scan.token::<usize>();
+        let a = scan.vector::<i32>(n);
+
+        let a_clone_sorted = {
+            let mut a_clone = a.clone();
+            a_clone.sort_unstable();
+            a_clone
+        };
+
+        let sol = if (0..n).all(|i| a[i] % 2 == a_clone_sorted[i] % 2) {
+            "YES"
+        } else {
+            "NO"
+        };
+
+        writeln!(w, "{sol}").ok();
+    })
 }
 
 fn main() {
