@@ -1,7 +1,9 @@
 [workspace]
 members = [
-  "../../websites/cses/introductory_problems/weird_algorithm",
+  "../../websites/aoc/2023/day_01/part_01",
+  "../../websites/aoc/2023/day_01/part_02",
   "../../websites/cses/introductory_problems/missing_number",
-  "../../websites/cses/sorting_and_searching/distinct_numbers",
+  "../../websites/cses/introductory_problems/weird_algorithm",
   "../../websites/cses/sorting_and_searching/apartments",
+  "../../websites/cses/sorting_and_searching/distinct_numbers",
 ]
