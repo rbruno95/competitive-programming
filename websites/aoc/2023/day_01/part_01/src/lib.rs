@@ -31,7 +31,7 @@ fn test_sum_calibration_values_sample() {
 #[test]
 fn test_sum_calibration_values_input() {
     let input =
-        std::fs::read_to_string("src/input.txt").expect("Should have been able to read the file");
+        std::fs::read_to_string("../input.txt").expect("Should have been able to read the file");
 
     assert_eq!(sum_calibration_values(&input), 56397)
 }

@@ -13,7 +13,7 @@ fn test_solve_sample() {
 #[test]
 fn test_solve_input() {
     let input =
-        std::fs::read_to_string("src/input.txt").expect("Should have been able to read the file");
+        std::fs::read_to_string("../input.txt").expect("Should have been able to read the file");
 
     assert_eq!(solve(&input), 0)
 }

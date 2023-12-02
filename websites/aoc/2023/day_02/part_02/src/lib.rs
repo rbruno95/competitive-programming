@@ -75,7 +75,7 @@ fn test_calculate_sum_of_powers_sample() {
 #[test]
 fn test_calculate_sum_of_powers_input() {
     let input =
-        std::fs::read_to_string("src/input.txt").expect("Should have been able to read the file");
+        std::fs::read_to_string("../input.txt").expect("Should have been able to read the file");
 
     assert_eq!(calculate_sum_of_powers(&input), 66363)
 }
