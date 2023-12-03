@@ -1,8 +1,26 @@
-#[allow(dead_code)]
-fn sum_calibration_values(input: &str) -> u32 {
+#![allow(dead_code)]
+
+fn part_1(input: &str) -> u32 {
     input
         .lines()
-        .into_iter()
+        .map(|line| {
+            let digits = line
+                .chars()
+                .filter_map(|c| c.to_digit(10))
+                .collect::<Vec<_>>();
+
+            if !digits.is_empty() {
+                digits.first().unwrap() * 10 + digits.last().unwrap()
+            } else {
+                panic!("There is no digit in line {line}")
+            }
+        })
+        .sum()
+}
+
+fn part_2(input: &str) -> u32 {
+    input
+        .lines()
         .map(|line| {
             let mut digits_with_indices = line
                 .char_indices()
@@ -46,22 +64,22 @@ fn sum_calibration_values(input: &str) -> u32 {
 }
 
 #[test]
-fn test_sum_calibration_values_sample() {
-    let sample = "two1nine
-                eightwothree
-                abcone2threexyz
-                xtwone3four
-                4nineeightseven2
-                zoneight234
-                7pqrstsixteen";
+fn test_day_1() {
+    let sample_part_1 = "1abc2
+pqr3stu8vwx
+a1b2c3d4e5f
+treb7uchet";
+    let sample_part_2 = "two1nine
+eightwothree
+abcone2threexyz
+xtwone3four
+4nineeightseven2
+zoneight234
+7pqrstsixteen";
+    let input = include_str!("input.txt");
 
-    assert_eq!(sum_calibration_values(sample), 281);
-}
-
-#[test]
-fn test_sum_calibration_values_input() {
-    let input =
-        std::fs::read_to_string("../input.txt").expect("Should have been able to read the file");
-
-    assert_eq!(sum_calibration_values(&input), 55701)
+    assert_eq!(part_1(sample_part_1), 142);
+    assert_eq!(part_1(input), 56397);
+    assert_eq!(part_2(sample_part_2), 281);
+    assert_eq!(part_2(input), 55701);
 }

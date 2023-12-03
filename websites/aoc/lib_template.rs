@@ -1,19 +1,20 @@
-#[allow(dead_code)]
-fn solve(input: &str) -> u32 {
+#![allow(dead_code)]
+
+fn part_1(input: &str) -> u32 {
+    input.lines().into_iter().map(|line| {}).sum()
+}
+
+fn part_2(input: &str) -> u32 {
     input.lines().into_iter().map(|line| {}).sum()
 }
 
 #[test]
-fn test_solve_sample() {
+fn test_day_n() {
     let sample = "";
+    let input = include_str!("input.txt");
 
-    assert_eq!(solve(sample), 0);
-}
-
-#[test]
-fn test_solve_input() {
-    let input =
-        std::fs::read_to_string("../input.txt").expect("Should have been able to read the file");
-
-    assert_eq!(solve(&input), 0)
+    assert_eq!(part_1(sample), 0);
+    assert_eq!(part_1(input), 0);
+    assert_eq!(part_2(sample), 0);
+    assert_eq!(part_2(input), 0);
 }
