@@ -16,7 +16,6 @@ fn part_1(input: &str) -> usize {
             let mut game_id = index + 1;
 
             line.split(&[',', ' ', ';', ':'])
-                .into_iter()
                 .filter(|x| !x.is_empty())
                 .skip(2) // To skip Game <id>
                 .collect::<Vec<_>>()
@@ -45,13 +44,13 @@ fn part_1(input: &str) -> usize {
 }
 
 fn part_2(input: &str) -> u32 {
-    let mut cubes_minimum_amount_by_color = HashMap::from([("red", 0), ("green", 0), ("blue", 0)]);
-
     input
         .lines()
         .map(|line| {
+            let mut cubes_minimum_amount_by_color =
+                HashMap::from([("red", 0), ("green", 0), ("blue", 0)]);
+
             line.split(&[',', ' ', ';', ':'])
-                .into_iter()
                 .filter(|x| !x.is_empty())
                 .skip(2) // To skip Game <id>
                 .collect::<Vec<_>>()
