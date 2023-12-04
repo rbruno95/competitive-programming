@@ -1,11 +1,11 @@
 #![allow(dead_code)]
 
 fn part_1(input: &str) -> u32 {
-    input.lines().into_iter().map(|line| {}).sum()
+    input.lines().map(|line| {}).sum()
 }
 
 fn part_2(input: &str) -> u32 {
-    input.lines().into_iter().map(|line| {}).sum()
+    input.lines().map(|line| {}).sum()
 }
 
 #[test]

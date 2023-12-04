@@ -3,6 +3,7 @@ members = [
   "../../websites/aoc/2023/day_01",
   "../../websites/aoc/2023/day_02",
   "../../websites/aoc/2023/day_03",
+  "../../websites/aoc/2023/day_04",
   "../../websites/cses/introductory_problems/missing_number",
   "../../websites/cses/introductory_problems/weird_algorithm",
   "../../websites/cses/sorting_and_searching/apartments",
