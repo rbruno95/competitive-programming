@@ -1,7 +1,18 @@
 [workspace]
 members = [
-  "../../websites/cses/introductory_problems/weird_algorithm",
+  "../../websites/aoc/2023/day_01",
+  "../../websites/aoc/2023/day_02",
+  "../../websites/aoc/2023/day_03",
+  "../../websites/aoc/2023/day_04",
+  "../../websites/aoc/2023/day_05",
+  "../../websites/aoc/2023/day_06",
+  "../../websites/aoc/2023/day_07",
+  "../../websites/aoc/2023/day_08",
+  "../../websites/aoc/2023/day_09",
   "../../websites/cses/introductory_problems/missing_number",
-  "../../websites/cses/sorting_and_searching/distinct_numbers",
+  "../../websites/cses/introductory_problems/weird_algorithm",
   "../../websites/cses/sorting_and_searching/apartments",
+  "../../websites/cses/sorting_and_searching/distinct_numbers",
 ]
+
+resolver = '2'
