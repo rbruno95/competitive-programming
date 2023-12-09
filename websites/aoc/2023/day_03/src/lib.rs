@@ -137,7 +137,7 @@ fn part_2(input: &str) -> u32 {
 }
 
 #[test]
-fn test_day_3() {
+fn test_day_03() {
     let sample = "467..114..
 ...*......
 ..35..633.

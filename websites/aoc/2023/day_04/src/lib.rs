@@ -65,7 +65,7 @@ fn part_2(input: &str) -> u32 {
 }
 
 #[test]
-fn test_day_n() {
+fn test_day_04() {
     let sample = "Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
 Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19
 Card 3:  1 21 53 59 44 | 69 82 63 72 16 21 14  1

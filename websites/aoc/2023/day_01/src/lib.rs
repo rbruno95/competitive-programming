@@ -24,7 +24,7 @@ fn part_2(input: &str) -> u32 {
         .map(|line| {
             let mut digits_with_indices = line
                 .char_indices()
-                .filter_map(|(i, c)| c.to_digit(10).map(|d| (i, d)))
+                .filter_map(|(index, c)| c.to_digit(10).map(|d| (index, d)))
                 .collect::<Vec<_>>();
 
             let digits_with_indices_mapped_from_spelled_digits = [
@@ -32,9 +32,9 @@ fn part_2(input: &str) -> u32 {
             ]
             .iter()
             .flat_map(|pattern| {
-                line.match_indices(pattern).map(|(i, x)| {
+                line.match_indices(pattern).map(|(index, x)| {
                     (
-                        i,
+                        index,
                         match x {
                             "one" => 1,
                             "two" => 2,
@@ -52,7 +52,7 @@ fn part_2(input: &str) -> u32 {
             });
 
             digits_with_indices.extend(digits_with_indices_mapped_from_spelled_digits);
-            digits_with_indices.sort_unstable_by_key(|d| d.0);
+            digits_with_indices.sort_unstable_by_key(|&(index, _)| index);
 
             if !digits_with_indices.is_empty() {
                 digits_with_indices.first().unwrap().1 * 10 + digits_with_indices.last().unwrap().1
@@ -64,7 +64,7 @@ fn part_2(input: &str) -> u32 {
 }
 
 #[test]
-fn test_day_1() {
+fn test_day_01() {
     let sample_part_1 = "1abc2
 pqr3stu8vwx
 a1b2c3d4e5f
